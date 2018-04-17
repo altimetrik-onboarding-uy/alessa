@@ -1,0 +1,6 @@
+<ul>
+  <li>Work Item Name: {!Work_Item__c.Name}</li>
+  <li>Title: {!Work_Item__c.Title__c}</li>
+  <li>Description: {!Work_Item__c.Description__c}</li>
+  <li><a href="{!Work_Item__c.Link}">Details</a></li>
+</ul>
