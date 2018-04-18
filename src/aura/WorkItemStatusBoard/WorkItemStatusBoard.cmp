@@ -1,0 +1,32 @@
+<aura:component controller="WorkItemController" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="newList" type="Object[]"></aura:attribute>
+    <aura:attribute name="readyList" type="Object[]"></aura:attribute>
+    <aura:attribute name="inProgressList" type="Object[]"></aura:attribute>
+    <aura:attribute name="doneList" type="Object[]"></aura:attribute>
+    <aura:attribute name="listsMeta" type="Object"></aura:attribute>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <div class="slds-box">
+                <c:WorkItemCardList workItems="{!v.newList}" titleOptions="{!v.listsMeta.new}"></c:WorkItemCardList>
+            </div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-box">
+                <c:WorkItemCardList workItems="{!v.readyList}" titleOptions="{!v.listsMeta.ready}"></c:WorkItemCardList>
+            </div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-box">
+                <c:WorkItemCardList workItems="{!v.inProgressList}" titleOptions="{!v.listsMeta.inProgress}"></c:WorkItemCardList>
+            </div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-box">
+                <c:WorkItemCardList workItems="{!v.doneList}" titleOptions="{!v.listsMeta.done}"></c:WorkItemCardList>
+            </div>
+        </div>
+    </div>
+</aura:component>
