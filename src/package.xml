@@ -2,7 +2,15 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>*</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>*</members>
 		<name>ApexTrigger</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>AuraDefinitionBundle</name>
 	</types>
 	<types>
 		<members>Work_Manager</members>
@@ -25,17 +33,6 @@
 		<members>Work_Items_Reports</members>
 		<members>Work_Items_Reports/Work_Done_by_Team_Member</members>
 		<name>Report</name>
-	</types>
-	<types>
-		<members>WorkItemController</members>
-		<name>ApexClass</name>
-	</types>
-	<types>
-		<members>WorkItemCardList</members>
-		<members>WorkItemStatusBoard</members>
-		<members>StatusBoardTemplate</members>
-		<members>WorkItemCard</members>
-		<name>AuraDefinitionBundle</name>
 	</types>
 	<version>36.0</version>
 </Package>

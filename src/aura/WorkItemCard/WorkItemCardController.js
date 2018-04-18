@@ -23,5 +23,8 @@
 			'recordId': component.get('v.workItem.Id')
 		});
 		event.fire();
+	},
+	handleSave: function(component, event, helper) {
+		console.log('dalebooo1');
 	}
 })

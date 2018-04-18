@@ -32,5 +32,10 @@
 		});
 
 		$A.enqueueAction(action);
+	},
+	openEdit: function(component, event, helper) {
+		console.log('ISEDITMODE', component.get('v.isEditMode'));
+		component.set('v.editRecordId', event.getParam('recordId'));
+		component.set('v.isEditMode', true);
 	}
 })

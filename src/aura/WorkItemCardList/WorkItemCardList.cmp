@@ -1,4 +1,4 @@
-<aura:component>
+<aura:component >
     <aura:attribute name="workItems" type="Object[]"></aura:attribute>
     <aura:attribute name="titleOptions" type="Object"></aura:attribute>
     
@@ -8,15 +8,6 @@
     </div>
     
     <aura:iteration items="{!v.workItems}" var="workItem">
-        <!-- <lightning:card title="{!workItem.Title__c}" iconName="{!workItem.Type__c == 'Idea' ? 'standard:solution' : workItem.Type__c == 'Action' ? 'standard:connected_apps' : 'standard:maintenance_plan'}">
-            <p class="slds-p-horizontal_small">
-                <ul>
-                    <li>Difficulty Level: {!workItem.Difficulty_Level__c}</li>
-                </ul>
-            </p>
-        </lightning:card> -->
         <c:WorkItemCard workItem="{!workItem}" />
     </aura:iteration>
 </aura:component>
-
-

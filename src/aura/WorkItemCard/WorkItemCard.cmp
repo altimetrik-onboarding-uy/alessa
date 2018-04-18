@@ -1,8 +1,13 @@
-<aura:component>
+<aura:component >
     <aura:attribute name="workItem" type="Work_Item__c" />
     <aura:attribute name="iconName" type="String" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:dependency resource="markup://force:editRecord" type="EVENT" />
+    <!-- <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.handleSave}" /> -->
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.workItem}" action="{!c.handleSave}" />
+
     
     <lightning:card title="{!v.workItem.Title__c}" iconName="{!v.iconName}">
         <aura:set attribute="title">
