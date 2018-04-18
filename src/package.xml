@@ -34,6 +34,7 @@
 		<members>WorkItemCardList</members>
 		<members>WorkItemStatusBoard</members>
 		<members>StatusBoardTemplate</members>
+		<members>WorkItemCard</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
 	<version>36.0</version>
