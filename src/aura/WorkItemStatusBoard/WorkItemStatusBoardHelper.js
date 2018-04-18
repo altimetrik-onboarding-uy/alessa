@@ -26,5 +26,19 @@
 		component.set('v.readyList', readyList);
 		component.set('v.inProgressList', inProgressList);
 		component.set('v.doneList', doneList);
+	},
+	updateList: function(component) {
+		var action = component.get('c.getWorkItems');
+		
+		action.setCallback(this, function(response) {
+			var state = response.getState();
+			if(state === 'SUCCESS') {
+				this.setStatusLists(component, response.getReturnValue());
+			} else {
+				console.log('Failed with state: ' + state);
+			}
+		});
+
+		$A.enqueueAction(action);
 	}
 })

@@ -4,8 +4,13 @@
     <aura:attribute name="inProgressList" type="Object[]"></aura:attribute>
     <aura:attribute name="doneList" type="Object[]"></aura:attribute>
     <aura:attribute name="listsMeta" type="Object"></aura:attribute>
+    <aura:attribute name="isEditMode" type="Boolean" default="false"></aura:attribute>
+    <aura:attribute name="editRecordId" type="String"></aura:attribute>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="openWorkItemEdit" event="c:WorkItemOpenEdit" action="{!c.openModal}" />
+    <aura:handler name="closeWorkItemEdit" event="c:WorkItemOpenEdit" action="{!c.closeModal}" />
+    <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.handleSaveSuccess}"/>
 
     <div class="slds-grid slds-gutters">
         <div class="slds-col">
@@ -29,4 +34,8 @@
             </div>
         </div>
     </div>
+
+    <aura:if isTrue="{!v.isEditMode}">
+        <c:WorkItemEditModal recordId="{!v.editRecordId}"/>
+    </aura:if>
 </aura:component>

@@ -18,13 +18,9 @@
 		component.set('v.iconName', iconName);
 	},
 	openEdit: function(component, event, helper) {
-		var event = $A.get('e.force:editRecord');
-		event.setParams({
-			'recordId': component.get('v.workItem.Id')
-		});
+		var event = component.getEvent('openWorkItemEdit');
+		var recordId = component.get('v.workItem.Id');
+		event.setParam('recordId', recordId);
 		event.fire();
-	},
-	handleSave: function(component, event, helper) {
-		console.log('dalebooo1');
 	}
 })

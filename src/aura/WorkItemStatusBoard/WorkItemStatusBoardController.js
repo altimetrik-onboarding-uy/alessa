@@ -1,6 +1,6 @@
 ({
 	doInit: function(component, event, helper) {
-		var action = component.get('c.getWorkItems');
+		// var action = component.get('c.getWorkItems');
 		var listsMeta = {
 			new: {
 				text: 'New',
@@ -22,20 +22,28 @@
 
 		component.set('v.listsMeta', listsMeta);
 
-		action.setCallback(this, function(response) {
-			var state = response.getState();
-			if(state === 'SUCCESS') {
-				helper.setStatusLists(component, response.getReturnValue());
-			} else {
-				console.log('Failed with state: ' + state);
-			}
-		});
+		helper.updateList(component);
 
-		$A.enqueueAction(action);
+		// action.setCallback(this, function(response) {
+		// 	var state = response.getState();
+		// 	if(state === 'SUCCESS') {
+		// 		helper.setStatusLists(component, response.getReturnValue());
+		// 	} else {
+		// 		console.log('Failed with state: ' + state);
+		// 	}
+		// });
+
+		// $A.enqueueAction(action);
 	},
-	openEdit: function(component, event, helper) {
-		console.log('ISEDITMODE', component.get('v.isEditMode'));
+	openModal: function(component, event) {
 		component.set('v.editRecordId', event.getParam('recordId'));
 		component.set('v.isEditMode', true);
+	},
+	closeModal: function(component) {
+		component.set('v.isEditMode', false);
+	},
+	handleSaveSuccess: function(component, event, helper) {
+		component.set('v.isEditMode', false);
+		helper.updateList(component);
 	}
 })
