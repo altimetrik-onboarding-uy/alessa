@@ -1,6 +1,5 @@
 ({
 	doInit: function(component, event, helper) {
-		// var action = component.get('c.getWorkItems');
 		var listsMeta = {
 			new: {
 				text: 'New',
@@ -23,17 +22,6 @@
 		component.set('v.listsMeta', listsMeta);
 
 		helper.updateList(component);
-
-		// action.setCallback(this, function(response) {
-		// 	var state = response.getState();
-		// 	if(state === 'SUCCESS') {
-		// 		helper.setStatusLists(component, response.getReturnValue());
-		// 	} else {
-		// 		console.log('Failed with state: ' + state);
-		// 	}
-		// });
-
-		// $A.enqueueAction(action);
 	},
 	openModal: function(component, event) {
 		component.set('v.editRecordId', event.getParam('recordId'));

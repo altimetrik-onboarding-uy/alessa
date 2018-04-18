@@ -9,7 +9,7 @@
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
     <aura:handler name="openWorkItemEdit" event="c:WorkItemOpenEdit" action="{!c.openModal}" />
-    <aura:handler name="closeWorkItemEdit" event="c:WorkItemOpenEdit" action="{!c.closeModal}" />
+    <aura:handler name="closeWorkItemEdit" event="c:WorkItemCloseEdit" action="{!c.closeModal}" />
     <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.handleSaveSuccess}"/>
 
     <div class="slds-grid slds-gutters">
