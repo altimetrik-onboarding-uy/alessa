@@ -4,7 +4,7 @@ public with sharing class WorkItemController {
 		List<Work_Item__c> workItems;
 
 		if(recordId != null) {
-			workItems = [SELECT Id, Title__c, Difficulty_Level__c, Type__c, Status__c FROM Work_Item__c WHERE Assignee__r.Id = :recordId];
+			workItems = [SELECT Id, Title__c, Difficulty_Level__c, Type__c, Status__c FROM Work_Item__c WHERE Assignee__r.Id = :recordId AND Start_Date__c = LAST_N_DAYS:30];
 		} else {
 			workItems = [SELECT Id, Title__c, Difficulty_Level__c, Type__c, Status__c FROM Work_Item__c WHERE Start_Date__c = LAST_N_DAYS:30 OR Status__c = 'New'];
 		}
