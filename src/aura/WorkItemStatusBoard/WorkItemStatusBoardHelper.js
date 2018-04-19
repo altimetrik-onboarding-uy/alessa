@@ -27,9 +27,15 @@
 		component.set('v.inProgressList', inProgressList);
 		component.set('v.doneList', doneList);
 	},
-	updateList: function(component) {
+	updateList: function(component, contactRecordId) {
 		var action = component.get('c.getWorkItems');
-		
+
+		if(contactRecordId) {
+			action.setParams({
+				recordId: contactRecordId
+			});
+		}
+
 		action.setCallback(this, function(response) {
 			var state = response.getState();
 			if(state === 'SUCCESS') {
