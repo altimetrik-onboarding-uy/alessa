@@ -11,34 +11,34 @@ private class UpdateWorkItemDateTriggerSpec {
 
 	@isTest 
 	static void testNewToReady() {
-		Work_Item__c testContact = [SELECT Status__c, Start_Date__c FROM Work_Item__c WHERE Title__c = 'TestItem10' LIMIT 1];
+		Work_Item__c testWorkItem = [SELECT Status__c, Start_Date__c FROM Work_Item__c WHERE Title__c = 'TestItem10' LIMIT 1];
 		Date testDate = Date.today();
 
-		testContact.Status__c = 'Ready';
+		testWorkItem.Status__c = 'Ready';
 		
 		Test.startTest();
-		update testContact;
+		update testWorkItem;
 		Test.stopTest();
 
-		testContact = [SELECT Start_Date__c FROM Work_Item__c WHERE Id = :testContact.Id];
+		testWorkItem = [SELECT Start_Date__c FROM Work_Item__c WHERE Id = :testWorkItem.Id];
 
-		System.assertEquals(testDate, testContact.Start_Date__c);
+		System.assertEquals(testDate, testWorkItem.Start_Date__c);
 	}
 	
 	@isTest
 	static void testToDone() {
-		Work_Item__c testContact = [SELECT Status__c, End_Date__c FROM Work_Item__c WHERE Title__c = 'TestItem10' LIMIT 1];
+		Work_Item__c testWorkItem = [SELECT Status__c, End_Date__c FROM Work_Item__c WHERE Title__c = 'TestItem10' LIMIT 1];
 		Date testDate = Date.today();
 
-		testContact.Status__c = 'Done';
+		testWorkItem.Status__c = 'Done';
 		
 		Test.startTest();
-		update testContact;
+		update testWorkItem;
 		Test.stopTest();
 
-		testContact = [SELECT End_Date__c FROM Work_Item__c WHERE Id = :testContact.Id];
+		testWorkItem = [SELECT End_Date__c FROM Work_Item__c WHERE Id = :testWorkItem.Id];
 
-		System.assertEquals(testDate, testContact.End_Date__c);
+		System.assertEquals(testDate, testWorkItem.End_Date__c);
 	}
 	
 }
