@@ -1,0 +1,41 @@
+<aura:component controller="WorkItemController" implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="newList" type="Object[]"></aura:attribute>
+    <aura:attribute name="readyList" type="Object[]"></aura:attribute>
+    <aura:attribute name="inProgressList" type="Object[]"></aura:attribute>
+    <aura:attribute name="doneList" type="Object[]"></aura:attribute>
+    <aura:attribute name="listsMeta" type="Object"></aura:attribute>
+    <aura:attribute name="isEditMode" type="Boolean" default="false"></aura:attribute>
+    <aura:attribute name="editRecordId" type="String"></aura:attribute>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="openWorkItemEdit" event="c:WorkItemOpenEdit" action="{!c.openModal}" />
+    <aura:handler name="closeWorkItemEdit" event="c:WorkItemCloseEdit" action="{!c.closeModal}" />
+    <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.handleSaveSuccess}"/>
+
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <div class="slds-box">
+                <c:WorkItemCardList workItems="{!v.newList}" titleOptions="{!v.listsMeta.new}"></c:WorkItemCardList>
+            </div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-box">
+                <c:WorkItemCardList workItems="{!v.readyList}" titleOptions="{!v.listsMeta.ready}"></c:WorkItemCardList>
+            </div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-box">
+                <c:WorkItemCardList workItems="{!v.inProgressList}" titleOptions="{!v.listsMeta.inProgress}"></c:WorkItemCardList>
+            </div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-box">
+                <c:WorkItemCardList workItems="{!v.doneList}" titleOptions="{!v.listsMeta.done}"></c:WorkItemCardList>
+            </div>
+        </div>
+    </div>
+
+    <aura:if isTrue="{!v.isEditMode}">
+        <c:WorkItemEditModal recordId="{!v.editRecordId}"/>
+    </aura:if>
+</aura:component>

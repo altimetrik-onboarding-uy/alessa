@@ -1,0 +1,11 @@
+.THIS.title-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.THIS .title-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}

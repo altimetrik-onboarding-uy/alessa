@@ -4,4 +4,5 @@
     <label>Work Manager</label>
     <tab>Work_Item__c</tab>
     <tab>standard-Contact</tab>
+    <tab>Work_Item_Status_Board</tab>
 </CustomApplication>
