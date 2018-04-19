@@ -1,4 +1,4 @@
-<aura:component controller="WorkItemController" implements="flexipage:availableForAllPageTypes">
+<aura:component controller="WorkItemController" implements="flexipage:availableForAllPageTypes, force:hasRecordId">
     <aura:attribute name="newList" type="Object[]"></aura:attribute>
     <aura:attribute name="readyList" type="Object[]"></aura:attribute>
     <aura:attribute name="inProgressList" type="Object[]"></aura:attribute>

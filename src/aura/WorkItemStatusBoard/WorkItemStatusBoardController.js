@@ -1,5 +1,6 @@
 ({
 	doInit: function(component, event, helper) {
+		var recordId = component.get('v.recordId');
 		var listsMeta = {
 			new: {
 				text: 'New',
@@ -21,7 +22,7 @@
 
 		component.set('v.listsMeta', listsMeta);
 
-		helper.updateList(component);
+		helper.updateList(component, recordId);
 	},
 	openModal: function(component, event) {
 		component.set('v.editRecordId', event.getParam('recordId'));
@@ -31,7 +32,8 @@
 		component.set('v.isEditMode', false);
 	},
 	handleSaveSuccess: function(component, event, helper) {
+		var recordId = component.get('v.recordId');
 		component.set('v.isEditMode', false);
-		helper.updateList(component);
+		helper.updateList(component, recordId);
 	}
 })
