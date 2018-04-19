@@ -1,6 +1,10 @@
 global class OverdueWorkItemsMailBatch implements Database.Batchable<sObject>, Database.Stateful {
 	
 	global Integer overdueCount = 0;
+	@TestVisible
+	static Integer testCount;
+	@TestVisible
+	static Integer emailLimits;
 	
 	global Iterable<sObject> start(Database.BatchableContext bc) {
 		Date today = Date.today();
@@ -27,6 +31,8 @@ global class OverdueWorkItemsMailBatch implements Database.Batchable<sObject>, D
 
 		mail.setToAddresses(addresses);
 		Messaging.sendEmail(new List<Messaging.SingleEmailMessage>{mail});
+		testCount = overdueCount;
+		emailLimits = Limits.getEmailInvocations();
 	}
 	
 }
