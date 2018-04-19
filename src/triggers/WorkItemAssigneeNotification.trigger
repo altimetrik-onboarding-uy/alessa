@@ -3,7 +3,7 @@ trigger WorkItemAssigneeNotification on Work_Item__c (after insert) {
     List<Messaging.SingleEmailMessage> emailList = new List<Messaging.SingleEmailMessage>();
     
     for(Work_Item__c wi: Trigger.new) {
-        if(wi.Assignee__c != null) {
+        if(wi.Assignee__c != null && wi.Assignee__r.Email != null) {
         	Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
             mail.setTargetObjectId(wi.Assignee__c);
             mail.setTemplateId(templateId);    
