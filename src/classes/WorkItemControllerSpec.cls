@@ -9,8 +9,8 @@ private class WorkItemControllerSpec {
 		Date outOfRange = Date.today().addDays(-31);
 
 
-		testContacts.add(new Contact(FirstName='TestName1', LastName='TestLastName1', Email='test@test.com'));
-		testContacts.add(new Contact(FirstName='TestName2', LastName='TestLastName2', Email='test@test.com'));
+		testContacts.add(new Contact(FirstName='TestName1', LastName='TestLastName1'));
+		testContacts.add(new Contact(FirstName='TestName2', LastName='TestLastName2'));
 
 		insert testContacts;
 
@@ -27,7 +27,6 @@ private class WorkItemControllerSpec {
 		}
 
 		insert testWorkItems;
-
 	}
 	
 	@isTest
